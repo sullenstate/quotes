@@ -46,7 +46,6 @@ body {
     text-align: center;
     background-color: whitesmoke;
     position: relative;
-    height: 5000px;
     padding: 3em;
 }
 
@@ -66,11 +65,10 @@ body {
 .quote-author {
 	font-weight: 100;
 	font-style: italic;
-	width: 75%;
-	text-align: right;
+	text-align: center;
 }
 
-.add-form {
+.popup {
 	width: 90%;
 	background-color: white;
 	border: 1px solid lightgrey;
@@ -80,7 +78,7 @@ body {
 	padding: 40px;
 }
 
-.add-form textarea {
+.popup textarea {
 	width: 75%;
 	max-width: 90%;
 	margin: 40px;
@@ -89,7 +87,7 @@ body {
 	font-weight: 300;
 }
 
-.add-form input[type="text"] {
+.popup input[type="text"] {
 	width: 30%;
 	margin: 40px;
 	font-family: 'Lato', sans-serif;
