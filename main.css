@@ -1,0 +1,123 @@
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+.nav {
+	width: 100%;
+    position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 1;
+}
+
+.nav ul {
+	text-align: right;
+	height: 2em;
+ 	margin: 0;
+}
+
+.nav li {
+	display: inline-block;
+  	float: right;
+  	line-height: 2em;
+  	text-align: center;
+  	width: 125px;
+  	border-bottom: 2px solid lightgrey;
+
+}
+
+.nav a {
+	color: lightgrey;
+  	text-decoration: none;
+  	display: block;
+}
+
+.nav a:hover {
+	background-color: grey;
+	color: white;
+  	transition: all .5s;
+
+}
+
+.container {
+    text-align: center;
+    background-color: whitesmoke;
+    position: relative;
+    height: 5000px;
+    padding: 3em;
+}
+
+.quote {
+	border-bottom: 1px dotted lightgrey;
+	position: relative;
+	margin: 2em;
+}
+
+.quote-text {
+	font-size: 3em;
+	font-weight: 300;
+	text-align: center;
+	margin: 0;
+}
+
+.quote-author {
+	font-weight: 100;
+	font-style: italic;
+	width: 75%;
+	text-align: right;
+}
+
+.add-form {
+	width: 90%;
+	background-color: white;
+	border: 1px solid lightgrey;
+	position: fixed;
+	top: 20%;
+	z-index: 1;
+	padding: 40px;
+}
+
+.add-form textarea {
+	width: 75%;
+	max-width: 90%;
+	margin: 40px;
+	font-family: 'Lato', sans-serif;
+	font-size: larger;
+	font-weight: 300;
+}
+
+.add-form input[type="text"] {
+	width: 30%;
+	margin: 40px;
+	font-family: 'Lato', sans-serif;
+	font-style: italic;
+	font-size: small;
+}
+
+.button {
+	position: absolute;
+	display: inline-block;
+	float: left;
+	padding: 0 .5em 3px;
+	color: grey;
+	background-color: whitesmoke;
+	border: 1px solid lightgrey;
+	bottom: 30px;
+}
+
+.button:hover {
+	background-color: #888;
+	color: white;
+  	transition: all .3s;
+}
+
+.buttonYes {
+	right: 90px;
+}
+
+.buttonNo {
+	right: 25px;
+}
