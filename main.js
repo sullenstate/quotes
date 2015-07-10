@@ -74,7 +74,7 @@ $(function() {
 			var quoteWrapper 	=	$('<div class="quote"></div>');
 			var	quoteText		= 	$('<h1 class="quote-text">This will be a relatively long quote.</h1>');
 			var	quoteAuthor		= 	$('<h3 class="quote-author">- Thomas Jefferson</h3>');
-			var removeButton	=	$('<div class="button buttonDelete" display="none">Delete this quote?</div>');
+			var removeButton	=	$('<div class="button buttonDelete" opacity="0">Delete this quote?</div>');
 
 
 			quoteWrapper.append(removeButton, quoteText, quoteAuthor);
@@ -125,6 +125,7 @@ $(function() {
 	});
 	
 	$('.container').on('click', '.buttonDelete', function(){
+		$(this).animate({opacity : 0}, 500);
 		$(this).closest('.quote').slideUp(1000, function(){
 			$(this).remove();
 			$('.nav').prepend("<li><a class='restore' href='javascript:void(0)'>Restore</a></li>");
@@ -132,10 +133,10 @@ $(function() {
 	});
 
 	$('.container').on('mouseenter', '.quote', function(){
-		$(this).children('.buttonDelete').fadeIn();
+		$(this).children('.buttonDelete').animate({opacity : 1}, 200);
 	});
 
 	$('.container').on('mouseleave', '.quote', function(){
-		$(this).children('.buttonDelete').fadeOut();
+		$(this).children('.buttonDelete').animate({opacity : 0}, 200);
 	});
 });
