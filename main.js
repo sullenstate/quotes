@@ -1,4 +1,16 @@
+// Save page state in local storage
+var pageState = function(){
+	setTimeout(function(){
+		localStorage["contents"] = JSON.stringify($('.pageContent').html());
+	}, 2000);
+};
+
 $(function() {
+
+	// Load locally stored page content
+	$('.pageContent').html(JSON.parse(localStorage["contents"]));
+
+	console.log($('.quote').length);
 
 	var previousCount;
 
@@ -31,11 +43,21 @@ $(function() {
 		formWrapper.append(quoteEntry, authorEntry, submitYes, submitNo);
 		$(formWrapper).prependTo('.container').hide().fadeIn(500);
 		$(windowShade).prependTo('.container');
+
+
 		// ---------------------------------
 	});
 
 	$('.home').on('click', function(){
 		
+	});
+
+	$('.restore').on('click', function(){
+		$('.hidden').fadeIn(1000, function(){
+			$('.hidden').removeClass('hidden');
+			$('.nav a.restore').parent().addClass('hidden');
+			pageState(); 
+		});
 	});
 
 	$('.rand').on('click', function(){
@@ -98,10 +120,11 @@ $(function() {
 				.slideDown(1000)
 				.animate(
 					{ opacity: 1 },
-					{ queue: false, duration: 1200}
+					{ queue: false, duration: 1200},
+					pageState()
 				);
 		}
-		// Geneerate additional random quotes from the Random Popup
+		// Generate additional random quotes from the Random Popup
 		else if ($(this).hasClass('buttonAnother')) {
 
 			// Generate a random number between 1 & the number of quotes.
@@ -125,10 +148,12 @@ $(function() {
 	});
 	
 	$('.container').on('click', '.buttonDelete', function(){
+		$(this).closest('.quote').siblings('.hidden').remove();
 		$(this).animate({opacity : 0}, 500);
 		$(this).closest('.quote').slideUp(1000, function(){
-			$(this).remove();
-			$('.nav').prepend("<li><a class='restore' href='javascript:void(0)'>Restore</a></li>");
+			$(this).addClass('hidden');
+			$('li.hidden').removeClass('hidden');
+			pageState();
 		});	
 	});
 

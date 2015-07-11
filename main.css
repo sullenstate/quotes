@@ -29,6 +29,11 @@ body {
 
 }
 
+.nav li.hidden {
+	border-bottom: 0;
+	display: none;
+}
+
 .nav a {
 	color: lightgrey;
   	text-decoration: none;
